@@ -71,15 +71,15 @@ export const ContactForm = () => {
     }
 
     return (
-        <div className="space-y-16 px-80 py-28">
-            <h1 className="font-bold text-[32px] text-black-special">Заполните форму</h1>
-            <form className="flex justify-between gap-x-10" onSubmit={handleSubmit}>
-                <div className="relative space-y-[5px] min-w-[560px]">
+        <div className="space-y-8 lg:space-y-16 px-4 md:px-10 lg:px-80 lg:py-28 pt-20 pb-7">
+            <h1 className="font-bold text-2xl md:text-[28px] lg:text-[32px] text-black-special">Заполните форму</h1>
+            <form className="lg:flex justify-between space-y-8 lg:gap-x-10" onSubmit={handleSubmit}>
+                <div className="relative space-y-[5px] lg:min-w-[560px]">
                     <Textarea
                         placeholder="Напишите свой вопрос"
                         value={message}
                         onChange={handleMessageChange}
-                        className={cn('px-[18px] py-[14px] h-full text-lg border border-gray-01 focus:border-black-special rounded-xl bg-gray-03 placeholder:text-black-special resize-none',
+                        className={cn('px-[18px] py-[18px] md:py-4 lg:py-[14px] h-56 lg:h-full text-sm lg:text-lg border border-gray-01 focus:border-black-special rounded-xl bg-gray-03 placeholder:text-black-special resize-none',
                             errors.message && 'border-error'
                         )}
                     />
@@ -89,15 +89,15 @@ export const ContactForm = () => {
                     )}
 
                 </div>
-                <div>
-                    <div className="space-y-8 min-w-[560px]">
+                <div className="space-y-8 md:space-y-16 lg:space-y-12 ">
+                    <div className="space-y-8 lg:min-w-[560px]">
                         <div className="relative space-y-[5px]">
                             <Input
                                 type="email"
                                 placeholder="Введите e-mail"
                                 value={email}
                                 onChange={handleEmailChange}
-                                className={cn('text-lg px-0 pt-[10px] pb-4 border-x-0 border-t-0 border-b border-b-gray-01 focus:border-black-special rounded-none bg-gray-03 placeholder:text-black-special',
+                                className={cn('px-0 pt-[6px] md:pt-[10px] pb-[14px] md:pb-[18px] lg:pb-4 text-sm lg:text-lg border-x-0 border-t-0 border-b border-b-gray-01 focus:border-black-special rounded-none bg-gray-03 placeholder:text-black-special',
                                     errors.email && 'border-b-error'
                                 )}
                             />
@@ -119,7 +119,7 @@ export const ContactForm = () => {
                                     htmlFor="terms"
                                     className="text-sm leading-5"
                                 >
-                                    Я ознакомлен(а) с политикой конфиденциальности и<br />согласен(на) на обработку персональных данных.
+                                    Я ознакомлен(а) с политикой конфиденциальности и<br className="md:hidden" />согласен(на) на обработку персональных данных.
                                 </Label>
                             </div>
 
@@ -129,7 +129,7 @@ export const ContactForm = () => {
 
                         </div>
                     </div>
-                    <Button variant='black' className="mt-12 w-full rounded-lg">Отправить</Button>
+                    <Button variant='black' className="w-full rounded-lg">Отправить</Button>
                 </div>
             </form>
         </div>

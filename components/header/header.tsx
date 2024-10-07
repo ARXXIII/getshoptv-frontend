@@ -7,9 +7,12 @@ import { useEffect, useRef, useState } from "react"
 import { useActiveSection } from "@/context/active-section/active-section-context"
 
 import { Menu } from "./menu"
+import { MenuMobile } from "./menu-mobile"
+import { IoClose, IoMenuOutline } from "react-icons/io5"
 
 export const Header = () => {
-    const [hasShadow, setHasShadow] = useState(false)
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [hasShadow, setHasShadow] = useState<boolean>(false)
 
     const { activeSection } = useActiveSection()
 
@@ -33,11 +36,24 @@ export const Header = () => {
     }, [])
 
     return (
-        <header ref={headerRef} className={cn("flex justify-between items-center sticky top-0 px-80 py-4 bg-gray-03 transition-shadow z-50",
-            hasShadow && 'shadow-special'
+        <header ref={headerRef} className={cn("flex justify-between items-center sticky top-0 px-4 md:px-10 lg:px-80 py-4 bg-gray-03 transition-shadow z-50",
+            hasShadow && 'shadow-special',
+            isOpen && 'bg-white shadow-none'
         )}>
-            <Link href='/' className="px-12 py-1 text-center font-black text-2xl text-black-special bg-white rounded-lg">LOGO</Link>
-            <Menu activeSection={activeSection!} />
+            <Link href='/' className="px-8 lg:px-12 py-1 text-center font-black text-base lg:text-2xl text-black-special bg-white rounded-lg">LOGO</Link>
+            <Menu activeSection={activeSection} />
+            <div className="flex lg:hidden items-start justify-end absolute right-4 md:right-10">
+                <div className="flex items-center">
+                    <button
+                        type="button"
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="text-orange-special rounded-md p-1.5 border border-orange-special transition-colors"
+                    >
+                        {isOpen ? <IoClose className="size-4" /> : <IoMenuOutline className="size-4" />}
+                    </button>
+                </div>
+            </div>
+            <MenuMobile isOpen={isOpen} activeSection={activeSection} onClose={() => setIsOpen(false)} />
         </header>
     )
 }
