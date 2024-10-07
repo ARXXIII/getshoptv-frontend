@@ -3,6 +3,7 @@ import { Onest } from "next/font/google"
 import { Header } from "@/components/header/header"
 import "./globals.css"
 import { ActiveSectionProvider } from "@/context/active-section/active-section-context";
+import Image from "next/image";
 
 const onest = Onest({ subsets: ['latin'] })
 
@@ -21,7 +22,13 @@ export default function RootLayout({
             <body className={`${onest.className} antialiased pt-8 bg-gray-03`}>
                 <ActiveSectionProvider>
                     <Header />
-                    <main>
+                    <Image
+                        src='/background.png'
+                        alt="background"
+                        fill
+                        className="z-0"
+                    />
+                    <main className="relative z-40">
                         {children}
                     </main>
                 </ActiveSectionProvider>
