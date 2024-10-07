@@ -7,7 +7,7 @@ import { Partners } from "@/components/partners-block/partners"
 
 export default function Home() {
     return (
-        <article className="space-y-20">
+        <article>
             <Hero />
             <Section id="section1">
                 <Balance />
