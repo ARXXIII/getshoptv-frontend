@@ -20,7 +20,7 @@ export const Section = ({ id, children }: SectionProps) => {
     }, [inView, id, setActiveSection])
 
     return (
-        <section ref={ref} id={id} className="section-class">
+        <section ref={ref} id={id}>
             {children}
         </section>
     )
