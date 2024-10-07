@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Onest } from "next/font/google"
 import { Header } from "@/components/header/header"
 import "./globals.css"
+import { ActiveSectionProvider } from "@/context/active-section/active-section-context";
 
 const onest = Onest({ subsets: ['latin'] })
 
@@ -18,10 +19,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${onest.className} antialiased pt-8 bg-gray-03`}>
-                <Header />
-                <main>
-                    {children}
-                </main>
+                <ActiveSectionProvider>
+                    <Header />
+                    <main>
+                        {children}
+                    </main>
+                </ActiveSectionProvider>
             </body>
         </html>
     );

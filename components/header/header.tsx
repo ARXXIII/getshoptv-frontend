@@ -2,12 +2,16 @@
 
 import Link from "next/link"
 
-import { Menu } from "./menu"
 import { cn } from "@/lib/utils"
 import { useEffect, useRef, useState } from "react"
+import { useActiveSection } from "@/context/active-section/active-section-context"
+
+import { Menu } from "./menu"
 
 export const Header = () => {
     const [hasShadow, setHasShadow] = useState(false)
+
+    const { activeSection } = useActiveSection()
 
     const headerRef = useRef<HTMLElement>(null)
 
@@ -33,7 +37,7 @@ export const Header = () => {
             hasShadow && 'shadow-special'
         )}>
             <Link href='/' className="px-12 py-1 text-center font-black text-2xl text-black-special bg-white rounded-lg">LOGO</Link>
-            <Menu />
+            <Menu activeSection={activeSection!} />
         </header>
     )
 }

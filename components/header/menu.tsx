@@ -1,10 +1,17 @@
 import Link from "next/link"
 
-export const Menu = () => {
+import { cn } from "@/lib/utils"
+
+export const Menu = ({ activeSection }: { activeSection: string | null }) => {
+    console.log(activeSection)
     return (
         <nav className="flex gap-x-16">
-            <Link href='/' className="text-sm text-black hover:text-orange-special active:border-b active:border-b-orange-special transition-colors">Преимущества</Link>
-            <Link href='/' className="text-sm text-black hover:text-orange-special active:border-b active:border-b-orange-special transition-colors">Как работаем</Link>
+            <Link href='#section1' className={cn("text-sm text-black hover:text-orange-special active:border-b active:border-b-orange-special transition-colors",
+                activeSection === 'section1' && 'text-orange-special'
+            )}>Преимущества</Link>
+            <Link href='#section2' className={cn("text-sm text-black hover:text-orange-special active:border-b active:border-b-orange-special transition-colors",
+                activeSection === 'section2' && 'text-orange-special'
+            )}>Как работаем</Link>
         </nav>
     )
 }
