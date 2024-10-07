@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${onest.className} antialiased lg:pt-8 bg-gray-03`}>
+            <body className={`${onest.className} antialiased pt-4 lg:pt-8 bg-gray-03`}>
                 <ActiveSectionProvider>
                     <Header />
                     <Image

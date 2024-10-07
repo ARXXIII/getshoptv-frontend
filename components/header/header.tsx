@@ -40,16 +40,16 @@ export const Header = () => {
             hasShadow && 'shadow-special',
             isOpen && 'bg-white shadow-none'
         )}>
-            <Link href='/' className="px-8 lg:px-12 py-1 text-center font-black text-base lg:text-2xl text-black-special bg-white rounded-lg">LOGO</Link>
+            <Link href='/' className="px-8 lg:px-12 py-1 text-center font-black text-base md:text-xl lg:text-2xl text-black-special bg-white rounded-lg">LOGO</Link>
             <Menu activeSection={activeSection} />
             <div className="flex lg:hidden items-start justify-end absolute right-4 md:right-10">
                 <div className="flex items-center">
                     <button
                         type="button"
                         onClick={() => setIsOpen(!isOpen)}
-                        className="text-orange-special rounded-md p-1.5 border border-orange-special transition-colors"
+                        className="text-orange-special rounded-md p-1.5 border-2 border-orange-special transition-colors"
                     >
-                        {isOpen ? <IoClose className="size-4" /> : <IoMenuOutline className="size-4" />}
+                        {isOpen ? <IoClose className="size-4 md:size-6" /> : <IoMenuOutline className="size-4 md:size-6" />}
                     </button>
                 </div>
             </div>

@@ -38,13 +38,13 @@ export const MenuMobile = ({ isOpen, onClose, activeSection }: MenuMobileProps) 
                         >
                             <DialogPanel className="w-screen md:w-72">
                                 <div className="flex items-center h-full bg-white">
-                                    <div className="flex flex-col">
-                                        <Link href='#section1' className={cn("px-8 py-[10px] text-sm text-black hover:text-orange-special active:border-b active:border-b-orange-special transition-colors",
+                                    <div className="flex flex-col gap-y-[10px] px-8">
+                                        <Link href='#section1' onClick={onClose} className={cn("pt-[10px] w-fit text-sm text-black hover:text-orange-special active:border-b active:border-b-orange-special transition-colors",
                                             activeSection === 'section1' && 'text-orange-special'
                                         )}>
                                             Преимущества
                                         </Link>
-                                        <Link href='#section2' className={cn("px-8 py-[10px] text-sm text-black hover:text-orange-special active:border-b active:border-b-orange-special transition-colors",
+                                        <Link href='#section2' onClick={onClose} className={cn("pt-[10px] w-fit text-sm text-black hover:text-orange-special active:border-b active:border-b-orange-special transition-colors",
                                             activeSection === 'section2' && 'text-orange-special'
                                         )}>
                                             Как работаем
